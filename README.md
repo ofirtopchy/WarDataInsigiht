@@ -1,1 +1,1 @@
-# WarDataInsigiht
+# WarDataInsights
