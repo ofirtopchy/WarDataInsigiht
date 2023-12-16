@@ -26,22 +26,17 @@ So, in order to scrap data from the site i used python pacage calld I <mark>Sele
 In a nutshell Selenium helps control web browsers, while BeautifulSoup is a sidekick for digging out the good stuff from web pages:
 
 ```python
-```python 
-
     from selenium import webdriver
     from bs4 import BeautifulSoup
     ....
     # Launch a browser using Selenium
     driver = webdriver.Chrome(options=chrome_options)
     driver.get(url)
-    # Get the page source after JavaScript has executed
     html_content = driver.page_source
     ......
     # Parse HTML content with BeautifulSoup
     soup = BeautifulSoup(html_content, 'html.parser')
-    # Find the parent element with class 'ah-notifications'
     notifications_parent = soup.find('div', class_='ah-notifications')
-```
 ```
 
 Having said that, I was able to itrate the html page and collect the data i would like to 
