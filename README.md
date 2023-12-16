@@ -26,7 +26,7 @@ So, in order to scrape data from the site, I used Python packages called **Selen
 
 In a nutshell Selenium helps control web browsers, while BeautifulSoup is a sidekick for digging out the good stuff from web pages:
 
-<details><summary>code summry here</summary>
+<details><summary>code sample</summary>
 
 ```python
 from selenium import webdriver
@@ -44,31 +44,22 @@ from selenium import webdriver
 </details>
 
 
-
-
-```python
-    from selenium import webdriver
-    from bs4 import BeautifulSoup
-    ...
-    # Launch a browser using Selenium
-    driver = webdriver.Chrome(options=chrome_options)
-    driver.get(url)
-    html_content = driver.page_source
-    ...
-    # Parse HTML content with BeautifulSoup
-    soup = BeautifulSoup(html_content, 'html.parser')
-    notifications_parent = soup.find('div', class_='ah-notifications')
-```
-
 Having said that, I was able to itrate the html page (ptyhon) and collect the data i would like to 
+
+<details><summary>code sample </summary> 
 
 ```python
    alert_tables = notifications_parent.select('[class*="alert_table"]')
    ...
    for alert_table in alert_tables:
    ....
-   alert_type_element = alert_table.find('h4', class_='alertTableCategory')
+   alert_type_element = alert_table.find('h4', class_='alertTableCategory'``` 
+
 ```
+
+
+</details>
+
 
 The data, saved into a local data base in my computer using sqllite and sql 
 
