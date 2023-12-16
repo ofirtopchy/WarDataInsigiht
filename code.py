@@ -1,3 +1,0 @@
-kaki kai
-ggg
-m
