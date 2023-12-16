@@ -26,7 +26,7 @@ So, in order to scrape data from the site, I used Python packages called **Selen
 
 In a nutshell Selenium helps control web browsers, while BeautifulSoup is a sidekick for digging out the good stuff from web pages:
 
-<details><summary>   
+<details><summary>code summry here</summary>
 
 ```python
 from selenium import webdriver
@@ -41,7 +41,7 @@ from selenium import webdriver
     soup = BeautifulSoup(html_content, 'html.parser')
     notifications_parent = soup.find('div', class_='ah-notifications')
 ```
-</summary></details>
+</details>
 
 
 
