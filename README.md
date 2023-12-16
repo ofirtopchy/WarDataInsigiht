@@ -22,14 +22,12 @@ Every day, with automationI I ***scraped data*** (alrams) from the Home Front Co
 
 ## 1. Data Scraping
 
-So, in order to scrape data from the site, I used Python packages called **Selenium** and **BeautifulSoup**
+So, in order to scrape data from the site, I used Python packages called **`Selenium`** and **`BeautifulSoup`**
 
 In a nutshell Selenium helps control web browsers, while BeautifulSoup is a sidekick for digging out the good stuff from web pages:
 
-<details><summary>code sample</summary>
-
 ```python
-from selenium import webdriver
+    from selenium import webdriver
     from bs4 import BeautifulSoup
     ...
     # Launch a browser using Selenium
@@ -41,27 +39,8 @@ from selenium import webdriver
     soup = BeautifulSoup(html_content, 'html.parser')
     notifications_parent = soup.find('div', class_='ah-notifications')
 ```
-</details>
-
 
 Having said that, I was able to itrate the html page (ptyhon) and collect the data i would like to 
-
-<details><summary>code sample </summary> 
-
-```python
-   alert_tables = notifications_parent.select('[class*="alert_table"]')
-   ...
-   for alert_table in alert_tables:
-   ....
-   alert_type_element = alert_table.find('h4', class_='alertTableCategory'``` 
-
-```
-
-
-</details>
-
-
-The data, saved into a local data base in my computer using sqllite and sql 
 
 ```python
    alert_tables = notifications_parent.select('[class*="alert_table"]')
@@ -69,6 +48,19 @@ The data, saved into a local data base in my computer using sqllite and sql
    for alert_table in alert_tables:
    ....
    alert_type_element = alert_table.find('h4', class_='alertTableCategory')
+```
+
+The data, saved into a local data base in my computer using sqllite and sql
+
+```python
+      conn = sqlite3.connect(os.path.abspath('alerts.db'))
+      cursor = conn.cursor()
+        # Insert the alert data into the database
+      
+      cursor.execute('''
+            INSERT INTO alerts (date, time, place, alert_type,insert_time) VALUES (?, ?, ?, ?,?)
+        ''', (date, time, place, alert_type,current_datetime))
+
 ```
 
 Too see the full script click [here](https://github.com/ofirtopchy/WarDatainsight/blob/main/Extract.py) 
